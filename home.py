@@ -1,7 +1,10 @@
 import streamlit as st
+import os
 
 
-def home():
-    st.title("My Gallary")
-    st.subheader('Just a collection of (almost) all of my works.')
-    st.image('resources/home.jpeg', use_column_width=True)
+def home(layout_data=None):
+    st.title(layout_data["home_title"])
+    st.subheader(layout_data["home_subheader"])
+    if os.path.isfile('resources/home.jpeg'):
+        column =st.beta_columns(1)
+        column[0].image('resources/home.jpeg', width=500)

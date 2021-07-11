@@ -1,0 +1,28 @@
+{
+    "home_title": "My Gallery",
+    "home_subheader": "Just a collection of (almost) all of my works.",
+    "drawings_title": "My Drawings",
+    "drawings_subheader": "Hover over and then click on the double arrows to have a closer look!",
+    "stencils_title": "My Stencils",
+    "stencils_subheader": "Hover over and then click on the double arrows to have a closer look!",
+    "photos_title": "My Photos",
+    "photos_subheader": "Hover over and then click on the double arrows to have a closer look!",
+    "writings_title": "My thoughts",
+    "writings_subheader": "Hover over and then click on the double arrows to have a closer look!",
+    "username_artist": "artist",
+    "passwd_artist": "artistisawsome",
+    "username_newt": "newt",
+    "passwd_newt": "newtistoo",
+    "settings_wide": "wide",
+    "settings_dark": "True",
+    "settings_nColumns": 4,
+    "sidebar_home": "Home",
+    "sidebar_drawings": "Drawings",
+    "sidebar_stencils": "Stencils",
+    "sidebar_photos": "Photos",
+    "sidebar_writings": "Writings",
+    "sidebar_admin": "Lab",
+    "sidebar_text": "As you are here, why not just roam around? :wink:",
+    "sidebar_choice": "Choose one"
+
+}
