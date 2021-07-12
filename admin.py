@@ -20,24 +20,25 @@ def maintain(layout_data=None):
 
         st.title(body='🔧 Maintenence 🔨')
         st.subheader(body=("Ahh, so you made it to the admin page, huh?. 😉" + 
-                            "\nWell let's get creative! 😎"))
+                            "\nNow, let's get creative! 😎"))
         action = st.selectbox(label='What do you want to do?', 
                                 options=('Nothing much, just having a look 😏',
-                                'Edit page layout ✔', 'Upload something ▲', 
+                                'Edit the Web App ✔', 'Upload something ▲', 
                                 'Delete something ❌', 'Self Destruct 💣💀'))
         
         if action=='Nothing much, just having a look 😏':
-            st.info("The page gives you complete access. You can even delete the whole "
-                    "page if you want. But unless that is not your intention, just don't "
+            st.info("The page gives you a complete access. You can even delete the whole "
+                    "web app if you want. But unless that is not your intention, just don't "
                     "click any 'confirm' buttons or type 'yes' anywhere. Other than that "
                     "it is perfectly safe to go anywhere, even to the 'Self Destruct' option. "
                     "Just have a look around. 😉")
             st.info("One last thing. If you leave this 'Lab' page in between editing data, "
                     "for eg. to see your wonderful drawings again, you have to "
-                    "log in to this page again. So, save before you leave.")
+                    "log in to this page again. So, save before you leave. It is not that "
+                    "I can not fix this, but I am just a lazy coder. Srry")
             with st.beta_expander("Wanna see the machinery behind all this??"):
                 st.write(("Okey, so go to the following link."))
-                st.write("[Code (the boring stuff)](www.google.com)")
+                st.write("[Code (the boring stuff)](https://github.com/neo0311/WebApp-projekt-artist)")
                 st.write("So, there will be many files. But, don't panic! "
                          "The '.py' files are the actual codes. The "
                          "'resources' folder contains all the image "
@@ -45,7 +46,7 @@ def maintain(layout_data=None):
 
         elif action=='Upload something ▲':
             uploader(layout_data)
-        elif action=='Edit page layout ✔':
+        elif action=='Edit the Web App ✔':
             editor(layout_data, user=user)
         elif action=='Delete something ❌':
             delete(layout_data)
@@ -55,7 +56,7 @@ def maintain(layout_data=None):
     elif user=='' or passwd=='':
         pass
     else:
-        st.sidebar.error('Sorry not for you! 😐 or maybe just wrong password!')
+        st.sidebar.error('Sorry not for you! 😐. Or maybe just a wrong password!')
 
 
 def uploader(layout_data):
@@ -86,7 +87,7 @@ def uploader(layout_data):
         st.text(body='Moments!, Frozen in time.')
         folder = 'photos'
     elif upload_type==layout_data["sidebar_writings"]:
-        st.text(body='Thoughts!, do it before the next passes through your head.')
+        st.text(body='Thoughts!, do it before the next one passes through your head.')
         folder = 'writings'
     elif upload_type==layout_data["sidebar_others"]:
         st.text(body="Seriously Lady!!, you don't even know what you are dong?😐 "  
@@ -112,21 +113,21 @@ def editor(layout_data,user=None):
     import json
     import os
     st.header('Editor')
-    st.text("Okey, so you don't like my content? This is sad. "
+    st.text("Okey, so you don't like my content? This is depressing. "
                 "\nJust Kidding! Go, pour those words in!!")
     with st.beta_expander("🌟🌟Here!!, The secret to all "
                             "of life's problems!!🌟🌟"):
         st.write("Sorry, this was the only way to make sure "
                 "you read this.😁\nJust select an option " 
                 "from the drop down menu and start editing!!. "
-                "Some texts may contain weird language like :'sunglasses':. " 
-                "\nDon't worry, they are just for adding emojis. Just leave "
+                "Some texts may contain weird language like :'sunglasses':. "
+                "It is not because I am cool, which is true anyways. 😁" 
+                "\nThey are just for adding emojis. Just leave "
                 "them and edit the rest of text or if you don't want them around, "
                 "delete those parts from text. If you like them and want to " 
                 "replace them with a seperate one, go to the below link and "
                 "replce the text in between :'text':" )
         st.write("Phew, happy editing!!!")
-
         st.write("[Emoji aliases](https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json)")
     edit_option = st.selectbox(label="What do you want to edit?", 
                     options=(layout_data["sidebar_home"] + ' page', 
@@ -307,6 +308,9 @@ def delete(layout_data):
 
         elif to_delete==layout_data["sidebar_others"]:
             path='resources' + os.sep + 'others' + os.sep + '*.*'
+        
+        elif to_delete==layout_data["sidebar_writings"]:
+            path='resources' + os.sep + 'writings' + os.sep + '*.*'
 
         imgs, image_files = read_imgs(path=path, return_names=True)
         arrange_imgs(image=imgs, st=st, layout_data=layout_data, caption=True)
@@ -333,7 +337,7 @@ def exterminate():
                 "Just to rephrase the title,  this will delete "
                 "everything of this page as you know it. One last quesion. "
                 "\nDoes the name 'Thanos' sound familier to you?")
-    exterminate_confirm_text = st.text_input('So, are you sure?? 😢. Then type yes')
+    exterminate_confirm_text = st.text_input('Are you sure?? 😢. Then type yes')
     exterminate_confirm_button = st.button('Exterminate!!')
 
     if exterminate_confirm_text=='yes' and exterminate_confirm_button:
